@@ -6,13 +6,15 @@
 		"build": "svelte build",
 		"build:node": "cp ./svelte.node.config.js  svelte.config.js && svelte build",
 		"build:static": "cp ./svelte.static.config.js  svelte.config.js && svelte build",
-		"static": "sirv build"
+		"static": "sirv build",
+		"db": "json-server db.json --port 4000"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-node": "0.0.14",
 		"@sveltejs/adapter-static": "0.0.14",
 		"@sveltejs/kit": "0.0.25",
 		"@sveltejs/snowpack-config": "0.0.5",
+		"json-server": "^0.16.3",
 		"sirv-cli": "^1.0.8",
 		"svelte": "^3.29.7"
 	}
