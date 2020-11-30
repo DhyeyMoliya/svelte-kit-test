@@ -1,12 +1,12 @@
-<script>
-  let count = 0;
+<script lang="ts">
+  import { counter } from "$stores/store";
 
   const increment = () => {
-    count += 1;
+    counter.update((value) => value + 1);
   };
 </script>
 
-<button on:click={increment}>Clicks: {count}</button>
+<button on:click={increment}>Clicks: {$counter}</button>
 
 <style>
   button {

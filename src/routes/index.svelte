@@ -1,9 +1,10 @@
 <script>
-  import Counter from "$components/Counter.svelte";
+import Counter from "$components/Counter.svelte";
+
+
 </script>
 
 <h1>Hello Svelte World!</h1>
-
 <Counter />
 <p>
   Visit the

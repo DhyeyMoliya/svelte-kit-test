@@ -1,30 +1,29 @@
-<script>
-  import { onMount } from "svelte";
+<script lang="ts">
+  import { redirect } from "$helpers/link";
 
-  let posts = [];
-
-  onMount(() => {
-    fetch(
-      "http://localhost:4000/todos?_limit=2&_sort=title&_order=asc&completed=false"
-    )
-      .then(async (res) => {
-        if (res.ok) {
-          posts = await res.json();
-        } else {
-          throw new Error();
-        }
-      })
-      .catch((error) => {
-        console.error("Error : ", error);
-      });
-  });
+  const getData = (async (): Promise<any[]> => {
+    const res = await fetch(
+      "http://localhost:4000/todos?_limit=200&_sort=title&_order=asc",
+      { headers: { "Content-Accept": "application/json" } }
+    );
+    if (res.ok) {
+      return await res.json();
+    } else {
+      throw new Error(await res.text());
+    }
+  })();
 </script>
 
 <h1>TODOS</h1>
-
-{#each posts as post}
-  <div class="task">{post.title}</div>
-{/each}
+{#await getData then todos}
+  {#each todos as todo}
+    <div class="task" on:click={() => redirect(`/todos/details/${todo.id}`)}>
+      {todo.title}
+    </div>
+  {/each}
+{:catch error}
+  <p>{error.message}</p>
+{/await}
 
 <style>
   .task {
