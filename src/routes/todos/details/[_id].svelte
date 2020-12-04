@@ -1,5 +1,5 @@
 <script>
-  import { counter } from "$stores/store";
+  import { counter } from "$state/store";
   export let id;
 </script>
 

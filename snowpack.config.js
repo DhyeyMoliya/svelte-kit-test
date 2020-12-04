@@ -6,12 +6,12 @@ module.exports = {
 	),
 	mount: {
 		'src/components': '/_components',
-		'src/stores': '/_stores',
 		'src/helpers': '/_helpers',
+		'src/stores': '/_stores',
 	},
 	alias: {
 		'$components': './src/components',
-		'$stores': './src/stores',
 		'$helpers': './src/helpers',
+		'$stores': './src/stores',
 	}
 };

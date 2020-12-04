@@ -17,17 +17,7 @@
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
-		"paths": {
-			"$components/*": [
-				"./src/components/*"
-			],
-			"$stores/*": [
-				"./src/stores/*"
-			],
-			"$helpers/*": [
-				"./src/helpers/*"
-			],
-		}
+		"paths": {}
 	},
 	"include": [
 		"src/**/*"
