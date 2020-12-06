@@ -1,29 +1,36 @@
+<script context="module" lang="ts">
+  export async function preload(page) {
+    try {
+      const res = await this.fetch(
+        "http://localhost:4000/todos?_limit=200&_sort=title&_order=asc"
+      );
+      if (res.ok) {
+        const data = await res.json();
+        return { data };
+      } else {
+        const error = await res.json();
+        this.error(res.status, error);
+      }
+    } catch (error) {
+      this.error(500, error);
+    }
+  }
+</script>
+
 <script lang="ts">
   import { redirect } from "$helpers/link";
 
-  const getData = (async (): Promise<any[]> => {
-    const res = await fetch(
-      "http://localhost:4000/todos?_limit=200&_sort=title&_order=asc",
-      { headers: { "Content-Accept": "application/json" } }
-    );
-    if (res.ok) {
-      return await res.json();
-    } else {
-      throw new Error(await res.text());
-    }
-  })();
+  export let data: any[];
 </script>
 
 <h1>TODOS</h1>
-{#await getData then todos}
-  {#each todos as todo}
-    <div class="task" on:click={() => redirect(`/todos/details/${todo.id}`)}>
+{#if data?.length}
+  {#each data as todo}
+    <div class="task" on:click={() => redirect(`/todos/${todo.id}`)}>
       {todo.title}
     </div>
   {/each}
-{:catch error}
-  <p>{error.message}</p>
-{/await}
+{/if}
 
 <style>
   .task {
