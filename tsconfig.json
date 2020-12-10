@@ -18,13 +18,13 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"$components": [
+			"$components/*": [
 				"./src/components/*"
 			],
-			"$stores": [
+			"$stores/*": [
 				"./src/stores/*"
 			],
-			"$helpers": [
+			"$helpers/*": [
 				"./src/helpers/*"
 			]
 		}
