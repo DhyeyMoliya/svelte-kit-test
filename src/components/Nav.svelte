@@ -4,8 +4,8 @@
 
 <nav>
   <a href="/" class:active={$page.path === '/'}>Home</a>
-  <a href="/about" class:active={$page.path === '/about'}>About</a>
-  <a href="/todos" class:active={$page.path === '/todos'}>Todos</a>
+  <a href="/about" class:active={$page.path.startsWith('/about')}>About</a>
+  <a href="/todos" class:active={$page.path.startsWith('/todos')}>Todos</a>
 </nav>
 
 <style lang="scss">
