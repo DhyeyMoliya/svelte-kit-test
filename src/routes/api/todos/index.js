@@ -1,12 +1,13 @@
 import { getTodos } from "$controllers/db";
 
+console.log('Test :', getTodos);
+
 export async function get(req) {
-    console.log('TEts : ', getTodos);
     try {
         const todos = await getTodos();
         return { status: 200, body: todos || [] };
     } catch (error) {
-        console.log('Test : ', error);
+        console.error('Er : ', error);
         return { status: 500, body: error };
     }
 }

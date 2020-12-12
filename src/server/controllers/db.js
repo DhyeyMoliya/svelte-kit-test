@@ -27,13 +27,13 @@ const data = {
     ]
 };
 
-export const getTodos = async () => {
+export async function getTodos() {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(data.todos));
     });
 }
 
-export const getTodoById = async (_id) => {
+export async function getTodoById(_id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(data.todos.find(todo => todo._id.toString() === _id.toString())), 1000);
     });

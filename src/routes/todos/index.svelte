@@ -1,15 +1,15 @@
 <script context="module">
+  console.log("T  : ");
+  export const prerender = false;
   export async function preload(page) {
-    console.log("Test : ", page);
     try {
+      console.log("P : ", page);
       const res = await this.fetch("/api/todos");
       if (res.ok) {
         const data = await res.json();
-        console.log("Res 1: ", data);
         return { data };
       } else {
-        const error = await res.text();
-        console.log("Error : ", error);
+        const error = await res.json();
         this.error(res.status, error);
       }
     } catch (error) {
