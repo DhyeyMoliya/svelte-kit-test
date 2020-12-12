@@ -4,10 +4,10 @@
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
-		"build:node": "cp ./svelte.node.config.js svelte.config.js && svelte-kit build && svelte-kit adapt",
-		"build:static": "cp ./svelte.static.config.js svelte.config.js && svelte-kit build && svelte-kit adapt && cp _redirects build",
+		"build:node": "rm -rf build && cp ./svelte.node.config.js svelte.config.js && svelte-kit build && svelte-kit adapt",
+		"build:static": "rm -rf build && cp ./svelte.static.config.js svelte.config.js && svelte-kit build && svelte-kit adapt && cp _redirects build",
 		"static": "sirv build -s",
-		"db": "json-server db.json --port 4000",
+		"db": "json-server db/db.json --port 4000 --routes db/routes.json",
 		"adapt": "svelte-kit adapt"
 	},
 	"devDependencies": {

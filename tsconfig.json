@@ -27,7 +27,10 @@
 			"$helpers/*": [
 				"./src/helpers/*"
 			]
-		}
+		},
+		/* Custom Rules start */
+		"resolveJsonModule": true
+		/* Custom Rules end */
 	},
 	"include": [
 		"src/**/*"

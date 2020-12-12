@@ -1,9 +1,7 @@
 <script context="module" lang="ts">
   export async function preload(page) {
     try {
-      const res = await this.fetch(
-        "http://localhost:4000/todos?_limit=200&_sort=title&_order=asc"
-      );
+      const res = await this.fetch("/api/todos");
       if (res.ok) {
         const data = await res.json();
         return { data };
@@ -12,6 +10,7 @@
         this.error(res.status, error);
       }
     } catch (error) {
+      console.log("Error : ", error);
       this.error(500, error);
     }
   }
@@ -19,14 +18,13 @@
 
 <script lang="ts">
   import { redirect } from "$helpers/link";
-
-  export let data: any[];
+  export let data: any[] = [];
 </script>
 
 <h1>TODOS</h1>
 {#if data?.length}
   {#each data as todo}
-    <div class="task" on:click={() => redirect(`/todos/${todo.id}`)}>
+    <div class="task" on:click={() => redirect(`/todos/${todo._id}`)}>
       {todo.title}
     </div>
   {/each}
