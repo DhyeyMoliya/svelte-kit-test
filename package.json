@@ -6,7 +6,7 @@
 		"build": "svelte-kit build",
 		"build:node": "rm -rf build && cp ./svelte.node.config.js svelte.config.js && svelte-kit build && svelte-kit adapt",
 		"build:static": "rm -rf build && cp ./svelte.static.config.js svelte.config.js && svelte-kit build && svelte-kit adapt && cp _redirects build",
-		"build:netlify": "rm -rf build && cp ./svelte.netlify.config.js svelte.config.js && svelte-kit build && svelte-kit adapt && cp _redirects build",
+		"build:netlify": "rm -rf build && rm -rf functions && cp ./svelte.netlify.config.js svelte.config.js && svelte-kit build && svelte-kit adapt && cp _redirects build && cp _redirects functions && cp _redirects functions/render",
 		"static": "sirv build -s",
 		"db": "json-server db/db.json --port 4000 --routes db/routes.json",
 		"adapt": "svelte-kit adapt"
