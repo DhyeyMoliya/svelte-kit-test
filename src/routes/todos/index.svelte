@@ -1,19 +1,19 @@
 <script context="module" lang="ts">
-  // export async function preload(page) {
-  //   try {
-  //     const res = await this.fetch("/api/todos");
-  //     if (res.ok) {
-  //       const data = await res.json();
-  //       return { data };
-  //     } else {
-  //       const error = await res.json();
-  //       this.error(res.status, error);
-  //     }
-  //   } catch (error) {
-  //     console.log("Error : ", error);
-  //     this.error(500, error);
-  //   }
-  // }
+  export async function preload(page) {
+    try {
+      const res = await this.fetch("/api/todos");
+      if (res.ok) {
+        const data = await res.json();
+        return { data };
+      } else {
+        const error = await res.json();
+        this.error(res.status, error);
+      }
+    } catch (error) {
+      console.log("Error : ", error);
+      this.error(500, error);
+    }
+  }
 </script>
 
 <script lang="ts">
