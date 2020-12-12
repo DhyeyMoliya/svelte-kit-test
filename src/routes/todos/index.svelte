@@ -21,6 +21,11 @@
   export let data: any[] = [];
 </script>
 
+
+<svelte:head>
+	<title>Todos</title>
+</svelte:head>
+
 <h1>TODOS</h1>
 {#if data?.length}
   {#each data as todo}

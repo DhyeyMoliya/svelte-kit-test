@@ -34,6 +34,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>{data ? data.title : 'Details'}</title>
+</svelte:head>
+
 {#if loading}
   <p>Loading...</p>
 {:else if loaded && !data}

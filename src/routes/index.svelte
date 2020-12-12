@@ -2,6 +2,10 @@
   import Counter from "$components/Counter.svelte";
 </script>
 
+<svelte:head>
+	<title>Home</title>
+</svelte:head>
+
 <h1>Hello Svelte World!</h1>
 <Counter />
 <p>
