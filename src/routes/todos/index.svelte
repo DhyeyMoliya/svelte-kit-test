@@ -17,7 +17,7 @@
 </script>
 
 <script lang="ts">
-  import { redirect } from "$helpers/link";
+  import { redirect } from "$clientHelpers/link";
   export let data: any[] = [];
 </script>
 

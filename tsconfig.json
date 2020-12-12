@@ -27,8 +27,8 @@
 			"$stores/*": [
 				"./src/stores/*"
 			],
-			"$helpers/*": [
-				"./src/helpers/*"
+			"$clientHelpers/*": [
+				"src/client/helpers/*"
 			]
 		},
 		/* Custom Rules start */

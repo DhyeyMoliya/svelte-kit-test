@@ -5,15 +5,15 @@ module.exports = {
 		'@snowpack/plugin-typescript'
 	),
 	mount: {
+		'src/client': '/_client',
 		'src/server': '/_server',
 		'src/components': '/_components',
-		'src/helpers': '/_helpers',
 		'src/stores': '/_stores',
 	},
 	alias: {
+		'$clientHelpers': './src/client/helpers',
 		'$controllers': './src/server/controllers',
 		'$components': './src/components',
-		'$helpers': './src/helpers',
 		'$stores': './src/stores',
 	}
 };

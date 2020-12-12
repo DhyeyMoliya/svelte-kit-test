@@ -8,7 +8,7 @@
   import { counter } from "$stores/store";
   import { onMount } from "svelte";
   export let params: any = {};
-  export let data: any;
+  let data: any;
   let loading = false;
   let loaded = false;
 
