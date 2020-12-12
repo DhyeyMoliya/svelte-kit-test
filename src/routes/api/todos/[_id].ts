@@ -1,4 +1,5 @@
-import { getTodoById } from "../db";
+import { getTodoById } from "$controllers/db";
+
 export async function get(req) {
     try {
         if (req?.params?._id) {

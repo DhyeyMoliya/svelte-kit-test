@@ -1,4 +1,4 @@
-import { getTodos } from "../db";
+import { getTodos } from "$controllers/db";
 
 export async function get(req) {
     try {

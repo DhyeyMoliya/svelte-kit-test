@@ -18,6 +18,9 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
+			"$controllers/*": [
+				"./src/server/controllers/*"
+			],
 			"$components/*": [
 				"./src/components/*"
 			],
