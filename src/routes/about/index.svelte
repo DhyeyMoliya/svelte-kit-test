@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>About</title>
+  <title>About</title>
 </svelte:head>
 
 <p>Hello this is about page of svelte demo.</p>
