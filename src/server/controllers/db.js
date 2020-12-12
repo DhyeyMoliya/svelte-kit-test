@@ -33,7 +33,7 @@ export const getTodos = async () => {
     });
 }
 
-export const getTodoById = async (_id: string | number) => {
+export const getTodoById = async (_id) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => resolve(data.todos.find(todo => todo._id.toString() === _id.toString())), 1000);
     });

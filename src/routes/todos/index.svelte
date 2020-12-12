@@ -1,29 +1,30 @@
-<script context="module" lang="ts">
+<script context="module">
   export async function preload(page) {
+    console.log("Test : ", page);
     try {
       const res = await this.fetch("/api/todos");
       if (res.ok) {
         const data = await res.json();
+        console.log("Res 1: ", data);
         return { data };
       } else {
-        const error = await res.json();
+        const error = await res.text();
+        console.log("Error : ", error);
         this.error(res.status, error);
       }
     } catch (error) {
-      console.log("Error : ", error);
       this.error(500, error);
     }
   }
 </script>
 
-<script lang="ts">
+<script>
   import { redirect } from "$clientHelpers/link";
-  export let data: any[] = [];
+  export let data = [];
 </script>
 
-
 <svelte:head>
-	<title>Todos</title>
+  <title>Todos</title>
 </svelte:head>
 
 <h1>TODOS</h1>

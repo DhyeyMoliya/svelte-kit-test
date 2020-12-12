@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import { counter } from "$stores/store";
 
   const increment = () => {

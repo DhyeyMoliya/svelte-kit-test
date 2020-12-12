@@ -1,19 +1,19 @@
-<script context="module" lang="ts">
+<script context="module">
   export async function preload(page) {
-    return { params: page?.params || {} };
+    return { params: (page && page.params) || {} };
   }
 </script>
 
-<script lang="ts">
+<script>
   import { counter } from "$stores/store";
   import { onMount } from "svelte";
-  export let params: any = {};
-  let data: any;
+  export let params = {};
+  let data;
   let loading = false;
   let loaded = false;
 
   onMount(() => {
-    if (params?._id) {
+    if (params && params._id) {
       loading = true;
       fetch(`http://localhost:4000/api/todos/${params._id}`)
         .then(async (res) => {

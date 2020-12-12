@@ -2,7 +2,7 @@ import { getTodoById } from "$controllers/db";
 
 export async function get(req) {
     try {
-        if (req?.params?._id) {
+        if (req && req.params && req.params._id) {
             const todo = await getTodoById(req.params._id);
             if (todo) {
                 return { body: todo };

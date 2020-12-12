@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
   import Nav from "$components/Nav.svelte";
   import { getStores } from "$app/stores";
   const { page } = getStores();
