@@ -1,13 +1,16 @@
-<script>
+<script lang="ts">
   import Counter from "$components/Counter.svelte";
+  import { getStores } from "$app/stores";
+  const session = getStores().session;
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>Home</title>
 </svelte:head>
 
 <h1>Hello Svelte World!</h1>
 <Counter />
+<p>Session Counter : {$session?.counter ?? '-'}</p>
 <p>
   Visit the
   <a href="https://svelte.dev">svelte.dev</a>

@@ -29,6 +29,9 @@
 			],
 			"$clientHelpers/*": [
 				"src/client/helpers/*"
+			],
+			"$app/*": [
+				".svelte/assets/runtime/app/*"
 			]
 		},
 		/* Custom Rules start */

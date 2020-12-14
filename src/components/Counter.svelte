@@ -1,8 +1,25 @@
 <script lang="ts">
   import { counter } from "$stores/store";
-
+  import { getStores } from "$app/stores";
+  const session = getStores().session;
+  session.update((val) => {
+    let sess = { ...(val || {}) };
+    if (!sess) {
+      sess = {};
+    }
+    sess.counter = 0;
+    return sess;
+  });
   const increment = () => {
-    counter.update((value) => value + 1);
+    let newVal = 0;
+    counter.update((value) => {
+      newVal = value + 1;
+      return newVal;
+    });
+    session.update((val) => {
+      val.counter = newVal;
+      return val;
+    });
   };
 </script>
 
