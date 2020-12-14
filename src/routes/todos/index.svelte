@@ -17,19 +17,18 @@
 </script>
 
 <script lang="ts">
-  import { redirect } from "$clientHelpers/link";
+  import { goto } from "$app/navigation";
   export let data: any[] = [];
 </script>
 
-
 <svelte:head>
-	<title>Todos</title>
+  <title>Todos</title>
 </svelte:head>
 
 <h1>TODOS</h1>
 {#if data?.length}
   {#each data as todo}
-    <div class="task" on:click={() => redirect(`/todos/${todo._id}`)}>
+    <div class="task" on:click={() => goto(`/todos/${todo._id}`)}>
       {todo.title}
     </div>
   {/each}
