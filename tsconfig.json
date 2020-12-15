@@ -25,7 +25,7 @@
 				"./src/components/*"
 			],
 			"$stores/*": [
-				"./src/stores/*"
+				"src/client/stores/*"
 			],
 			"$clientHelpers/*": [
 				"src/client/helpers/*"
