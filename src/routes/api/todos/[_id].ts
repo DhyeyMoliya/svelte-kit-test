@@ -1,4 +1,4 @@
-import { getTodoById } from "$controllers/db";
+import { getTodoById } from "$server/controllers/todos";
 
 export async function get(req) {
     try {

@@ -9,12 +9,10 @@ module.exports = {
 		'src/client': '/_client',
 		'src/server': '/_server',
 		'src/components': '/_components',
-		'src/stores': '/_stores',
 	},
 	alias: {
-		'$clientHelpers': './src/client/helpers',
-		'$controllers': './src/server/controllers',
+		'$client': './src/client',
+		'$server': './src/server',
 		'$components': './src/components',
-		'$stores': './src/stores',
 	}
 };

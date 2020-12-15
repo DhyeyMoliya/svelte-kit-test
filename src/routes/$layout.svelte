@@ -11,6 +11,6 @@
 
 <style lang="scss">
   :global {
-    @import "../styles/global.scss";
+    @import "../client/styles/global.scss";
   }
 </style>

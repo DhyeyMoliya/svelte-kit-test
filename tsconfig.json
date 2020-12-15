@@ -18,17 +18,14 @@
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"paths": {
-			"$controllers/*": [
-				"./src/server/controllers/*"
+			"$client/*": [
+				"src/client/*"
+			],
+			"$server/*": [
+				"./src/server/*"
 			],
 			"$components/*": [
 				"./src/components/*"
-			],
-			"$stores/*": [
-				"src/client/stores/*"
-			],
-			"$clientHelpers/*": [
-				"src/client/helpers/*"
 			],
 			"$app/*": [
 				".svelte/assets/runtime/app/*"

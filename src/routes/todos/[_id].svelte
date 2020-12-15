@@ -5,7 +5,7 @@
 </script>
 
 <script lang="ts">
-  import { counter } from "$stores/store";
+  import { counter } from "$client/stores/counter";
   import { onMount } from "svelte";
   export let params: any = {};
   let data: any;
