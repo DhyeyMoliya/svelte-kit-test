@@ -1,24 +1,42 @@
-<script context="module" lang="ts">
-  export async function preload(page) {
-    try {
-      const res = await this.fetch("/api/todos");
-      if (res.ok) {
-        const data = await res.json();
-        return { data };
-      } else {
-        const error = await res.json();
-        this.error(res.status, error);
-      }
-    } catch (error) {
-      console.log("Error : ", error);
-      this.error(500, error);
-    }
-  }
-</script>
-
 <script lang="ts">
   import { goto } from "$app/navigation";
-  export let data: any[] = [];
+  import { writable } from "svelte/store";
+  import { onMount } from "svelte";
+  let data = writable([]);
+  let error = writable(null);
+  let loading = writable(false);
+  onMount(() => {
+    loading.set(true);
+    fetch("http://localhost:4000/api/todos")
+      .then(async (res) => {
+        if (
+          res &&
+          res.ok &&
+          res.headers?.has("Content-Type") &&
+          res.headers?.get("Content-Type").startsWith("application/json")
+        ) {
+          data.set(await res.json());
+        } else {
+          data.set([]);
+          error.set({
+            status: res.status,
+            error:
+              res.headers?.has("Content-Type") &&
+              res.headers?.get("Content-Type").startsWith("application/json")
+                ? await res.json()
+                : await res.text(),
+          });
+        }
+        loading.set(false);
+      })
+      .catch((err) => {
+        console.log("Error : ", err);
+        error.set({ status: 500, error: err });
+        data.set([]);
+        loading.set(false);
+      });
+  });
+  $: console.log($data);
 </script>
 
 <svelte:head>
@@ -26,13 +44,25 @@
 </svelte:head>
 
 <h1>TODOS</h1>
-{#if data?.length}
-  {#each data as todo}
-    <div class="task" on:click={() => goto(`/todos/${todo._id}`)}>
-      {todo.title}
-    </div>
-  {/each}
-{/if}
+{#if !$loading}
+  {#if !$error}
+    {#if $data.length}
+      {#each $data as todo}
+        <div class="task" on:click={() => goto(`/todos/${todo.id}`)}>
+          {todo.title}
+        </div>
+      {/each}
+    {/if}
+  {:else}
+    <p>Error getting data</p>
+    <p>
+      <i>
+        Note: You need loal database server running on port 4000 to see this
+        page.
+      </i>
+    </p>
+  {/if}
+{:else}<span>Loading...</span>{/if}
 
 <style>
   .task {

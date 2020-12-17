@@ -1,7 +1,3 @@
-<script context="module">
-  export const prerender = true;
-</script>
-
 <script lang="ts">
   import { getStores } from "$app/stores";
   const session = getStores().session;
