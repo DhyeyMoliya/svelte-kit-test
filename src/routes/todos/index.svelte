@@ -2,6 +2,7 @@
   import { goto } from "$app/navigation";
   import { writable } from "svelte/store";
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   let data = writable([]);
   let error = writable(null);
   let loading = writable(false);
@@ -36,7 +37,6 @@
         loading.set(false);
       });
   });
-  $: console.log($data);
 </script>
 
 <svelte:head>
@@ -47,8 +47,11 @@
 {#if !$loading}
   {#if !$error}
     {#if $data.length}
-      {#each $data as todo}
-        <div class="task" on:click={() => goto(`/todos/${todo.id}`)}>
+      {#each $data as todo, index}
+        <div
+          class="task"
+          on:click={() => goto(`/todos/${todo.id}`)}
+          transition:fade|local={{ delay: (index + 1) * 100, duration: 300 }}>
           {todo.title}
         </div>
       {/each}

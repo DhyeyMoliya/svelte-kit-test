@@ -7,7 +7,6 @@
   let data: any;
   let loading = false;
   let loaded = false;
-
   onMount(() => {
     if ($page?.params?._id) {
       loading = true;
