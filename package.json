@@ -19,11 +19,11 @@
 		"@sveltejs/kit": "next",
 		"@sveltejs/snowpack-config": "next",
 		"json-server": "^0.16.3",
-		"sass": "^1.30.0",
+		"sass": "^1.32.2",
 		"sirv-cli": "^1.0.10",
-		"svelte": "^3.31.0",
+		"svelte": "^3.31.2",
 		"svelte-preprocess": "^4.6.1",
-		"tslib": "^2.0.3",
+		"tslib": "^2.1.0",
 		"typescript": "^4.1.3"
 	}
 }
